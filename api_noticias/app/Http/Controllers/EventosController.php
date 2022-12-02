@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use Illuminate\Http\Request;
+use App\Http\Requests\EventosRequest;
 
 class EventosController extends Controller
 {
@@ -14,7 +15,7 @@ class EventosController extends Controller
      */
     public function index()
     {
-        //
+        return Evento::all();
     }
 
     /**
