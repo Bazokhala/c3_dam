@@ -10,7 +10,7 @@ class Evento extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $table = 'eventos';
+    protected $table = '_eventos';
     protected $primaryKey = 'cod_Evento';
     public $incrementing = false;
     protected $keyType = 'string';
