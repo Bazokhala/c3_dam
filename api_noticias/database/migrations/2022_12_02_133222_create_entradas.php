@@ -14,8 +14,14 @@ class CreateEntradas extends Migration
     public function up()
     {
         Schema::create('entradas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            //$table->id();
+            //$table->timestamps();
+            $table->unsignedInteger('id')->autoIncrement();;
+            
+            $table->dateTime('fecha_compra');
+            $table->string('metodo_pago',20);
+            
+            $table->softDeletes();
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVenta extends Migration
+class ForaneaEntradas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateVenta extends Migration
      */
     public function up()
     {
-        Schema::create('venta', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('entradas', function (Blueprint $table) {
+            //
+            $table->string('codigo_evento');
+            $table->foreign('codigo_evento')->references('cod_evento')->on('evento');
         });
     }
 
@@ -26,6 +27,8 @@ class CreateVenta extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('venta');
+        Schema::table('entradas', function (Blueprint $table) {
+            //
+        });
     }
 }
