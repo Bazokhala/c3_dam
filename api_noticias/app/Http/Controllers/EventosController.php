@@ -24,9 +24,19 @@ class EventosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventosRequest $request)
     {
         //
+        $evento = new Evento();
+        $evento->cod_evento = $request->cod_evento;
+        $evento->nombre=$request->nombre;
+        $evento->fecha_evento=$request->fecha_evento;
+        $evento->estado_evento=$request->estado_evento;
+        $evento->lugar_evento=$request->lugar_evento;
+        $evento->precio_entrada=$request->precio_entrada;
+        $evento->stock_entradas=$request->stock_entradas;
+        $evento->save();
+        return $evento;
     }
 
     /**
@@ -51,6 +61,15 @@ class EventosController extends Controller
     public function update(Request $request, Evento $evento)
     {
         //
+        $evento->cod_evento = $request->cod_evento;
+        $evento->nombre=$request->nombre;
+        $evento->fecha_evento=$request->fecha_evento;
+        $evento->estado_evento=$request->estado_evento;
+        $evento->lugar_evento=$request->lugar_evento;
+        $evento->precio_entrada=$request->precio_entrada;
+        $evento->stock_entradas=$request->stock_entradas;
+        $evento->save();
+        return $evento;
     }
 
     /**
@@ -62,5 +81,6 @@ class EventosController extends Controller
     public function destroy(Evento $evento)
     {
         //
+        $evento->delete();
     }
 }
