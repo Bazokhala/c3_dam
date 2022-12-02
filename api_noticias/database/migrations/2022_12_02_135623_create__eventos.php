@@ -20,9 +20,9 @@ class CreateEventos extends Migration
             $table->string('nombre',50);
             $table->dateTime('fecha_evento');
             $table->string('estado_evento');
-            $table->integer('precio_entrada');
-            $table->integer('cantidad_entradas');
-            $table->integer('stock_entradas');
+            $table->string('lugar_evento');
+            $table->unsignedInteger('precio_entrada');
+            $table->smallInteger('stock_entradas');
             $table->softDeletes();
         });
     }
