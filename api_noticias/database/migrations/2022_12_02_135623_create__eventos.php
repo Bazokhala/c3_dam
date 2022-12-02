@@ -16,7 +16,7 @@ class CreateEventos extends Migration
         Schema::create('_eventos', function (Blueprint $table) {
             //$table->id();
             //$table->timestamps();
-            $table->string('cod_Evento',5)->primary();
+            $table->string('cod_evento',5)->primary();
             $table->string('nombre',50);
             $table->dateTime('fecha_evento');
             $table->string('estado_evento');
