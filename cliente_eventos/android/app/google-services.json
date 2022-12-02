@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "165152911311",
+    "project_id": "bd-c3-noticias",
+    "storage_bucket": "bd-c3-noticias.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165152911311:android:a062148e476f86063e2cba",
+        "android_client_info": {
+          "package_name": "com.c3noticias.cliente_eventos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165152911311-6udq8hbidhd3ar27l34q8j24b0s3icep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLnXeFnyrw648XhU12h6QR3J-oq3HyDxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165152911311-6udq8hbidhd3ar27l34q8j24b0s3icep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
