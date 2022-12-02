@@ -14,8 +14,16 @@ class CreateEventos extends Migration
     public function up()
     {
         Schema::create('_eventos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            //$table->id();
+            //$table->timestamps();
+            $table->string('cod_Evento',5)->primary();
+            $table->string('nombre',50);
+            $table->dateTime('fecha_evento');
+            $table->string('estado_evento');
+            $table->integer('precio_entrada');
+            $table->integer('cantidad_entradas');
+            $table->integer('stock_entradas');
+            $table->softDeletes();
         });
     }
 
