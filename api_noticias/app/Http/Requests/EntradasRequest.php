@@ -28,8 +28,7 @@ class EntradasRequest extends FormRequest
            // 'cod_evento.required'=>'Indique el código del evento',
            'id'=>'required|unique:entradas,id|numeric',
            'codigo_evento'=>'required|max:5',
-           'fecha_compra'=>'required|date',
-           'metodo_pago'=>'required|max:20|alpha',
+           
 
         ];
     }
@@ -42,9 +41,7 @@ class EntradasRequest extends FormRequest
             'id.numeric'=>'El id solo debe ser númerico',
             'codigo_evento.required'=>'El código del evento al que pertenece la entrada debe ser ingresado',
             'codigo_evento.max'=>'El largo del código sale de los parametros esperados',
-            'fecha_compra.required'=>'La fecha de compra es obligatoria',
-            'fecha_compra.date'=>'El formato de la fecha de compra no es compatible',
-            'metodo_pago.required'
+            
         ];
     }
 }
