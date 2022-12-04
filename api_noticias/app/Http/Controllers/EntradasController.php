@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Entrada;
 use Illuminate\Http\Request;
+use App\Http\Requests\EntradasRequest;
 
 class EntradasController extends Controller
 {
@@ -15,6 +16,7 @@ class EntradasController extends Controller
     public function index()
     {
         //
+        return Entrada::all();
     }
 
     /**
@@ -23,9 +25,15 @@ class EntradasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EntradasRequest $request)
     {
         //
+        $entrada = new Entrada();
+        $entrada->id = $request->id;
+        $entrada->codigo_evento->$request->codigo_evento;
+        $entrada->save();
+        return $entrada;
+
     }
 
     /**
@@ -37,6 +45,7 @@ class EntradasController extends Controller
     public function show(Entrada $entrada)
     {
         //
+        return $entrada;
     }
 
     /**
@@ -49,6 +58,11 @@ class EntradasController extends Controller
     public function update(Request $request, Entrada $entrada)
     {
         //
+        $entrada->id = $request->id;
+        $entrada->codigo_evento->$request->codigo_evento;
+        $entrada->save();
+        return $entrada;
+
     }
 
     /**
@@ -60,5 +74,6 @@ class EntradasController extends Controller
     public function destroy(Entrada $entrada)
     {
         //
+        $entrada->delete();
     }
 }
