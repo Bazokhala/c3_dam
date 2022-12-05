@@ -1,4 +1,8 @@
+import 'package:cliente_eventos/pages/listado_eventos_page.dart';
+import 'package:cliente_eventos/widgets/authenticator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -23,11 +27,36 @@ class _MyWidgetState extends State<LoginPage> {
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
           child: Padding(
-            padding: EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(5),
             child: Column(
               children: [
                 campoEmail(),
                 campoPass(),
+                Divider(),
+                ElevatedButton(
+                  child: Text('Ingresar'),
+                  onPressed: (() {}),
+                ),
+                Divider(),
+                Container(
+                  child: MaterialButton(
+                    onPressed: (() async {
+                      User? user = await Authenticator.iniciarSesion(
+                        context: context,
+                      );
+                      MaterialPageRoute route = MaterialPageRoute(
+                        builder: (context) => ListadoEventosPage(),
+                      );
+                      print(user?.displayName);
+                      Navigator.push(context, route).then((value) {
+                        setState(() {});
+                      });
+                    }),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    child: Icon(FontAwesomeIcons.google),
+                  ),
+                )
               ],
             ),
           ),
