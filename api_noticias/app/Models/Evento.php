@@ -11,7 +11,7 @@ class Evento extends Model
     use HasFactory,SoftDeletes;
 
     protected $table = 'evento';
-    protected $primaryKey = 'cod_Evento';
+    protected $primaryKey = 'cod_evento';
     public $incrementing = false;
     protected $keyType = 'string';
     public $timestamps = false;
