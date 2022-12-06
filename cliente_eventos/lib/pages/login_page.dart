@@ -1,4 +1,4 @@
-import 'package:cliente_eventos/pages/listado_eventos_page.dart';
+import 'package:cliente_eventos/pages/home_page.dart';
 import 'package:cliente_eventos/widgets/authenticator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -45,10 +45,10 @@ class _MyWidgetState extends State<LoginPage> {
                         context: context,
                       );
                       MaterialPageRoute route = MaterialPageRoute(
-                        builder: (context) => ListadoEventosPage(),
+                        builder: (context) => HomePage(),
                       );
-                      print(user?.displayName);
-                      Navigator.push(context, route).then((value) {
+                      //print(user?.displayName);
+                      Navigator.pushReplacement(context, route).then((value) {
                         setState(() {});
                       });
                     }),
