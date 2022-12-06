@@ -30,7 +30,7 @@ class EntradasController extends Controller
         //
         $entrada = new Entrada();
         $entrada->id = $request->id;
-        $entrada->codigo_evento->$request->codigo_evento;
+        $entrada->codigo_evento = $request->codigo_evento;
         $entrada->save();
         return $entrada;
 
@@ -59,7 +59,7 @@ class EntradasController extends Controller
     {
         //
         $entrada->id = $request->id;
-        $entrada->codigo_evento->$request->codigo_evento;
+        $entrada->codigo_evento = $request->codigo_evento;
         $entrada->save();
         return $entrada;
 
