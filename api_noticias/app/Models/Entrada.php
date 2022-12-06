@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Entrada extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $table = 'entrada';
+    protected $table = 'entradas';
     public $timestamps =false;
 }
