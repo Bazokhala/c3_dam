@@ -59,7 +59,7 @@ class VentasController extends Controller
      * @param  \App\Models\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Venta $venta)
+    public function update(VentaRequest $request, Venta $venta)
     {
         //
         $venta->code_evento->$request->code_evento;

@@ -55,7 +55,7 @@ class EntradasController extends Controller
      * @param  \App\Models\Entrada  $entrada
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entrada $entrada)
+    public function update(EntradasRequest $request, Entrada $entrada)
     {
         //
         $entrada->id = $request->id;
