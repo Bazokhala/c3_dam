@@ -1,4 +1,5 @@
 import 'package:cliente_eventos/services/firestore_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -13,37 +14,29 @@ class HomePage extends StatelessWidget {
         leading: Icon(FontAwesomeIcons.newspaper),
         title: Text('Eventos Masivos'),
       ),
-      body: ListView(
-        //Listado de Noticias
-        children: [
-          Row(
-            children: [
-              StreamBuilder(
-                stream: FirestoreService().noticias(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData ||
-                      snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  return ListView.separated(
-                    separatorBuilder: (context, index) => Spacer(),
-                    itemCount: snapshot.data!.docs.length,
-                    itemBuilder: (context, index) {
-                      var noticias = snapshot.data!.docs[index];
-                      return ListTile(
-                        leading: Icon(FontAwesomeIcons.hackerNews),
-                        title: Text(noticias['titulo']),
-                        subtitle: Text(noticias['descripcion']),
-                      );
-                    },
-                  );
-                },
-              )
-            ],
-          )
-        ],
+      body: StreamBuilder(
+        stream: FirestoreService().noticias(),
+        builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          //Aca ta
+          if (!snapshot.hasData ||
+              snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ListView.separated(
+            separatorBuilder: (context, index) => Divider(),
+            itemCount: snapshot.data!.docs.length,
+            itemBuilder: (context, index) {
+              var noticias = snapshot.data!.docs[index];
+              return ListTile(
+                leading: Icon(FontAwesomeIcons.hackerNews),
+                title: Text(noticias['titulo']),
+                subtitle: Text(noticias['descripcion']),
+              );
+            },
+          );
+        },
       ),
     );
   }

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "165152911311-p0knprumhng0fntm858cnq9aqceo5rtr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.c3noticias.cliente_eventos",
+            "certificate_hash": "98fdac199ddc0863715abf9ef8a2661780494767"
+          }
+        },
+        {
           "client_id": "165152911311-6udq8hbidhd3ar27l34q8j24b0s3icep.apps.googleusercontent.com",
           "client_type": 3
         }
