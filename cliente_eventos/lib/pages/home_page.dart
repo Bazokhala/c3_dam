@@ -1,42 +1,43 @@
-import 'package:cliente_eventos/services/firestore_service.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cliente_eventos/pages/eventos_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomePage extends StatelessWidget {
+import 'noticias_page.dart';
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int paginaSel = 0;
+  final paginas = [NoticiasPage(), EventosPage()];
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.purple,
-        leading: Icon(FontAwesomeIcons.newspaper),
-        title: Text('Eventos Masivos'),
-      ),
-      body: StreamBuilder(
-        stream: FirestoreService().noticias(),
-        builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          //Aca ta
-          if (!snapshot.hasData ||
-              snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          return ListView.separated(
-            separatorBuilder: (context, index) => Divider(),
-            itemCount: snapshot.data!.docs.length,
-            itemBuilder: (context, index) {
-              var noticias = snapshot.data!.docs[index];
-              return ListTile(
-                leading: Icon(FontAwesomeIcons.hackerNews),
-                title: Text(noticias['titulo']),
-                subtitle: Text(noticias['descripcion']),
-              );
-            },
-          );
-        },
+      body: paginas[paginaSel],
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        currentIndex: paginaSel,
+        onTap: ((index) {
+          setState(() {
+            paginaSel = index;
+          });
+        }),
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.newspaper),
+            label: 'Noticias',
+            backgroundColor: Color(0xFFD80100),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.ticket),
+            label: 'Eventos',
+            backgroundColor: Color(0xFF037470),
+          ),
+        ],
       ),
     );
   }
