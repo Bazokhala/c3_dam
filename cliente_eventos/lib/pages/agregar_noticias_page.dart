@@ -1,7 +1,5 @@
 import 'package:cliente_eventos/services/firestore_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class AgregarNoticiasPage extends StatefulWidget {
   const AgregarNoticiasPage({super.key});
