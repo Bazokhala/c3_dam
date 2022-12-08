@@ -26,11 +26,12 @@ class _EventosPageState extends State<EventosPage> {
               child: CircularProgressIndicator(),
             );
           }
+          var evento = snapshot.data;
+          print(evento);
           return ListView.separated(
             separatorBuilder: (context, index) => Divider(),
-            itemCount: snapshot.data!.length,
+            itemCount: evento.length,
             itemBuilder: ((context, index) {
-              var evento = snapshot.data!.docs[index];
               return ListTile(
                 leading: Icon(FontAwesomeIcons.ticketSimple),
                 title: Text(evento['cod_evento'] + ' ' + evento['nombre']),
@@ -43,7 +44,7 @@ class _EventosPageState extends State<EventosPage> {
                 trailing: Column(
                   children: [
                     Text(evento['estado_evento']),
-                    Text(evento['precio_entrada']),
+                    Text('\$' + evento['precio_entrada']),
                   ],
                 ),
               );
