@@ -9,7 +9,7 @@ class EventosProvider {
 
   //Obtencion de todos los Eventos
   Future<List<dynamic>> getNoticias() async {
-    var respuesta = await http.get(Uri.parse(apiURL + '/evento'));
+    var respuesta = await http.get(Uri.parse(apiURL + '/eventos'));
     if (respuesta.statusCode == 200) {
       return json.decode(respuesta.body);
     } else {
