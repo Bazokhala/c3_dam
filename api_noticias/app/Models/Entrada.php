@@ -11,10 +11,10 @@ class Entrada extends Model
     use HasFactory,SoftDeletes;
     protected $table = 'entradas';
     public $timestamps =false;
-    protected $hidden = 'eventosConPivot';
+  //  protected $hidden = 'eventosConPivot';
 
-    public function eventosConPivot(){
-        return $this->hasMany(Evento::class,'ventas','code_evento,entrada_id,venta_id')->withPivot('cantidad','precio_venta');;
+    //public function eventosConPivot(){
+     //   return $this->hasMany(Evento::class,'ventas','code_evento,entrada_id,venta_id')->withPivot('cantidad','precio_venta');;
 
-    }
+    //}
 }

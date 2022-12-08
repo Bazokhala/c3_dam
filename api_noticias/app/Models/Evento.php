@@ -15,10 +15,10 @@ class Evento extends Model
     public $incrementing = false;
     protected $keyType = 'string';
     public $timestamps = false;
-    protected $hidden = 'entradasConPivot';
+    //protected $hidden = 'entradasConPivot';
 
-    public function entradasConPivot(){
-        return $this->belongsTo(Entrada::class,'ventas','code_evento,entrada_id,venta_id')->withPivot('cantidad','precio_venta');;
+    //public function entradasConPivot(){
+     //   return $this->belongsTo(Entrada::class,'ventas','code_evento,entrada_id,venta_id')->withPivot('cantidad','precio_venta');;
 
-    }
+    //}
 }
