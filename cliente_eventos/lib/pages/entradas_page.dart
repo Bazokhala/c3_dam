@@ -19,9 +19,9 @@ class _EntradasPageState extends State<EntradasPage> {
         title: Text('Entradas a la Venta'),
       ),
       body: FutureBuilder(
-        future: EntradasProvider().getEntradas(),
+        future: (EntradasProvider().getEntradas()),
         builder: (context, AsyncSnapshot snapshot) {
-          if (snapshot.hasData) {
+          if (!snapshot.hasData) {
             return Center(
               child: CircularProgressIndicator(),
             );
@@ -33,8 +33,8 @@ class _EntradasPageState extends State<EntradasPage> {
               var entrada = snapshot.data[index];
               return ListTile(
                 leading: Icon(FontAwesomeIcons.ticket),
-                title: Text(entrada['id']),
-                subtitle: Text(entrada['codigo_evento']),
+                title: Text(entrada['codigo_evento']),
+                subtitle: Text(entrada['id'].toString()),
                 trailing: Column(
                   children: [
                     Text(entrada['fecha_compra']),

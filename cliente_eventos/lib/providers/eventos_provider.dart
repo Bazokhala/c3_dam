@@ -8,7 +8,7 @@ class EventosProvider {
   final apiURL = 'http://10.0.2.2:8000/api';
 
   //Obtencion de todos los Eventos
-  Future<List<dynamic>> getNoticias() async {
+  Future<List<dynamic>> getEventos() async {
     var respuesta = await http.get(Uri.parse(apiURL + '/eventos'));
     if (respuesta.statusCode == 200) {
       return json.decode(respuesta.body);
@@ -24,11 +24,11 @@ class EventosProvider {
     DateTime fecha,
     String estado,
     String lugar,
-    Int precio,
+    int precio,
     int stock,
   ) async {
     var respuesta = await http.post(
-      Uri.parse(apiURL + '/evento'),
+      Uri.parse(apiURL + '/eventos'),
       headers: <String, String>{
         'Content-type': 'application/json',
         'Accept': 'application/json',
@@ -49,13 +49,14 @@ class EventosProvider {
   //Borrado de Evento
   Future<bool> borrar(String cod_evento) async {
     var respuesta =
-        await http.delete(Uri.parse(apiURL + '/evento/' + cod_evento));
+        await http.delete(Uri.parse(apiURL + '/eventos/' + cod_evento));
     return respuesta.statusCode == 200;
   }
 
-  //Obtencion de 1 noticia en particular
-  Future<LinkedHashMap<String, dynamic>> getNoticia(String cod_evento) async {
-    var respuesta = await http.get(Uri.parse(apiURL + '/evento/' + cod_evento));
+  //Obtencion de 1 evento en particular
+  Future<LinkedHashMap<String, dynamic>> getEvento(String cod_evento) async {
+    var respuesta =
+        await http.get(Uri.parse(apiURL + '/eventos/' + cod_evento));
     if (respuesta.statusCode == 200) {
       return json.decode(respuesta.body);
     } else {
@@ -71,11 +72,11 @@ class EventosProvider {
     DateTime fecha,
     String estado,
     String lugar,
-    Int precio,
+    int precio,
     int stock,
   ) async {
     var respuesta = await http.put(
-      Uri.parse(apiURL + '/evento/' + cod_evento_actual),
+      Uri.parse(apiURL + '/eventos/' + cod_evento_actual),
       headers: <String, String>{
         'Content-type': 'application/json',
         'Accept': 'application/json',

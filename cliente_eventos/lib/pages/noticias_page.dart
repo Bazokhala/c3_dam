@@ -20,6 +20,25 @@ class _NoticiasPageState extends State<NoticiasPage> {
         backgroundColor: Color(0xFFD80100),
         leading: Icon(FontAwesomeIcons.newspaper),
         title: Text('Noticias que te Importan'),
+        actions: [
+          PopupMenuButton(
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 'carrito',
+                child: Text('Carrito'),
+              ),
+              PopupMenuItem(
+                value: 'logout',
+                child: Text('Cerrar Sesion'),
+              ),
+            ],
+            onSelected: ((opcionSeleccionada) {
+              if (opcionSeleccionada == 'logout') {
+                //logout(context);
+              }
+            }),
+          )
+        ],
       ),
       body: StreamBuilder(
         stream: FirestoreService().noticias(),
