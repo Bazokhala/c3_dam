@@ -3,10 +3,12 @@ import 'package:cliente_eventos/pages/home_page.dart';
 import 'package:cliente_eventos/pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  initializeDateFormatting('cl_CL', null);
   runApp(const MyApp());
 }
 
